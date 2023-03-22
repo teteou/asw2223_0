@@ -22,8 +22,8 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: 18
-    - run: npm --prefix webapp ci
-    - run: npm --prefix restapi ci
+    - run: npm --prefix webapp install
+    - run: npm --prefix restapi install
     - run: npm --prefix webapp run test --coverage --watchAll=false --coverageReporters=lcov
     - run: npm --prefix restapi run test --coverage --watchAll=false --coverageReporters=lcov
     - name: Analyze with SonarCloud
