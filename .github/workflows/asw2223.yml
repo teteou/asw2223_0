@@ -14,9 +14,6 @@ on:
 jobs:
   unit-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: webapp
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
