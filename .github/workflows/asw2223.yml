@@ -81,7 +81,7 @@ jobs:
       with:
         node-version: 18
     - run: npm --prefix webapp install
-    - run: npm --prefix webapp run prod
+    - run: npm --prefix webapp run build
     - uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
