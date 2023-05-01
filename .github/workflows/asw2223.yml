@@ -53,7 +53,7 @@ jobs:
     - run: npm --prefix webapp run build
     - uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.ASW_DEPLOY }}
+        personal_token: ${{ secrets.TOKEN }}
         external_repository: cidinene/equipoInterfaz5.github.io
         publish_branch: master # default: gh-pages
         publish_dir: ./webapp/build
