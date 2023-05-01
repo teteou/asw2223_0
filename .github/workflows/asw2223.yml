@@ -54,7 +54,7 @@ jobs:
     - name: Deploy
       uses: cpina/github-action-push-to-another-repository@create-branch-if-needed-arg
       env:
-          API_TOKEN_GITHUB: ${{ secrets.GH_DEPLUY }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
           source-directory: webmail/build
           destination-github-username: 'cidinene'
