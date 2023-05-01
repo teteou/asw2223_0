@@ -51,9 +51,12 @@ jobs:
         node-version: 18
     - run: npm --prefix webapp install
     - run: npm --prefix webapp run build
-    - uses: peaceiris/actions-gh-pages@v3
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        personal_token: ${{ secrets.TOKEN }}
+        personal_token: ${{ secrets.AWS_DEPLOY }}
         external_repository: cidinene/equipoInterfaz5.github.io
         publish_branch: master # default: gh-pages
         publish_dir: ./webapp/build
