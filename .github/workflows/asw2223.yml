@@ -41,6 +41,7 @@ jobs:
     - run: npm --prefix webapp run build
     - run: npm --prefix webapp run test:e2e    
   deploy:
+    needs: [e2e-tests]
     name: gh-pages deploy
     runs-on: ubuntu-latest
     steps:
@@ -52,9 +53,11 @@ jobs:
     - run: npm --prefix webapp run build
     - uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ASW_DEPLOY }}
-        external_repository: cidinene/equipoInterfaz5
-        publish_branch: gh-pages # default: gh-pages
+        personal_token: ${{ secrets.ASW_DEPLOY }}
+        external_repository: cidinene/equipoInterfaz5.github.io
+        publish_branch: master # default: gh-pages
         publish_dir: ./webapp/build
+        user_name: cidinene
+        user_email: cidirene@gmail.com
     
    
