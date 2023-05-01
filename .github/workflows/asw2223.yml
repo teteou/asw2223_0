@@ -51,12 +51,21 @@ jobs:
         node-version: 18
     - run: npm --prefix webapp install
     - run: npm --prefix webapp run build
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Pushes to another repository
+      id: push_directory
+      uses: cpina/github-action-push-to-another-repository@create-branch-if-needed-arg
+      env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-        force_orphan: true
+          source-directory: webapp/build
+          destination-github-username: 'cidinene'
+          destination-repository-name: 'equipoInterfaz5'
+          user-email: cidirene@gmail.com
+          commit-message: testing othe publuish plugin
+          target-branch: main-does-not-exist
+          create-target-branch-if-needed: true
+      - name: Test get variable exported by push-to-another-repository
+        run: echo $DESTINATION_CLONED_DIRECTORY
 
     
    
