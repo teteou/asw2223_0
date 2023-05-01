@@ -58,10 +58,10 @@ jobs:
       with:
           source-directory: webmail/build
           destination-github-username: 'cidinene'
-          destination-repository-name: 'cidinene/equipoInterfaz5.github.io'
+          destination-repository-name: 'equipoInterfaz5'
           user-email: cidirene@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: main-does-not-exist
+          target-branch: gh-pages
           create-target-branch-if-needed: true
     - name: Test get variable exported by push-to-another-repository
       run: echo $DESTINATION_CLONED_DIRECTORY
