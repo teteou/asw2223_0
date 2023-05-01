@@ -56,7 +56,7 @@ jobs:
       env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-          source-directory: webmail/build
+          source-directory: 'webapp/build'
           destination-github-username: 'cidinene'
           destination-repository-name: 'equipoInterfaz5'
           user-email: cidirene@gmail.com
