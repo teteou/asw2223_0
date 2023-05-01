@@ -52,7 +52,6 @@ jobs:
     - run: npm --prefix webapp install
     - run: npm --prefix webapp run build
     - name: Deploy
-      id: push_directory
       uses: cpina/github-action-push-to-another-repository@create-branch-if-needed-arg
       env:
           API_TOKEN_GITHUB: ${{ secrets.GH_DEPLUY }}
@@ -64,8 +63,8 @@ jobs:
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: main-does-not-exist
           create-target-branch-if-needed: true
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
+    - name: Test get variable exported by push-to-another-repository
+      run: echo $DESTINATION_CLONED_DIRECTORY
         
     
    
