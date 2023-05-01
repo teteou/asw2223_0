@@ -50,7 +50,7 @@ jobs:
       with:
         node-version: 18
     - run: npm --prefix webapp install
-    - run: npm --prefix webapp run build
+    - run: PUBLIC_URL=https://cidinene.github.io/equipoInterfaz5/ npm --prefix webapp run build
     - name: Deploy
       uses: cpina/github-action-push-to-another-repository@create-branch-if-needed-arg
       env:
